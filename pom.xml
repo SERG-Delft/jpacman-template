@@ -4,7 +4,7 @@
 
 	<groupId>nl.tudelft.jpacman</groupId>
 	<artifactId>jpacman-solution</artifactId>
-	<version>0.1-SNAPSHOT</version>
+	<version>0.1</version>
 	
 	<prerequisites>
 		<maven>2.2.1</maven>
@@ -24,6 +24,7 @@
 	    <url>https://repository-avandeursen.forge.cloudbees.com/release</url>
 	    <releases>
 	      <enabled>true</enabled>
+	      <updatePolicy>always</updatePolicy>
 	    </releases>
 	    <snapshots>
 	      <enabled>false</enabled>
@@ -58,12 +59,12 @@
 		<dependency>
 			<groupId>nl.tudelft.jpacman</groupId>
 			<artifactId>jpacman-framework</artifactId>
-			<version>5.3.1-SNAPSHOT</version>
+			<version>5.4</version>
 		</dependency>
 		<dependency>
 			<groupId>nl.tudelft.jpacman</groupId>
 			<artifactId>jpacman-framework</artifactId>
-			<version>5.3.1-SNAPSHOT</version>
+			<version>5.4</version>
 			<type>test-jar</type>
 		</dependency>
 
