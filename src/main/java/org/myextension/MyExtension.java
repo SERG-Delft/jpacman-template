@@ -10,7 +10,7 @@ import org.jpacman.framework.ui.MainUI;
  */
 
 public class MyExtension extends MainUI {
-	
+
 	private static final long serialVersionUID = -2368505776408908204L;
 
 	/**
