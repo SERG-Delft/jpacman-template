@@ -3,14 +3,14 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>nl.tudelft.jpacman</groupId>
-	<artifactId>jpacman-solution</artifactId>
+	<artifactId>jpacman-template</artifactId>
 	<version>0.1</version>
 	
 	<prerequisites>
 		<maven>2.2.1</maven>
 	</prerequisites>
 
-	<name>JPacman Solution</name>
+	<name>JPacman Template Solution</name>
 	<description>Template for solving the jpacman exercises.</description>
 
 	<properties>
