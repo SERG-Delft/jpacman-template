@@ -4,7 +4,7 @@
 
 	<groupId>nl.tudelft.jpacman</groupId>
 	<artifactId>jpacman-template</artifactId>
-	<version>5.7-SNAPSHOT</version>
+	<version>5.7</version>
 	
 	<prerequisites>
 		<maven>2.2.1</maven>
@@ -59,12 +59,12 @@
 		<dependency>
 			<groupId>nl.tudelft.jpacman</groupId>
 			<artifactId>jpacman-framework</artifactId>
-			<version>5.7-SNAPSHOT</version>
+			<version>5.7</version>
 		</dependency>
 		<dependency>
 			<groupId>nl.tudelft.jpacman</groupId>
 			<artifactId>jpacman-framework</artifactId>
-			<version>5.7-SNAPSHOT</version>
+			<version>5.7</version>
 			<type>test-jar</type>
 		</dependency>
 
