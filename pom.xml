@@ -91,7 +91,7 @@
 					<archive>
 						<manifest>
 							<addClasspath>true</addClasspath>
-							<mainClass>nl.tudelft.yournetid.Launcher</mainClass>
+							<mainClass>nl.tudelft.jpacman.group-yournumber.Launcher</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

@@ -1,4 +1,4 @@
-package nl.tudelft.yournetid;
+package nl.tudelft.jpacman.groupNUMBER;
 
 import nl.tudelft.jpacman.Launcher;
 
