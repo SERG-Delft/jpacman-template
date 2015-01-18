@@ -4,7 +4,7 @@
 
 	<groupId>nl.tudelft.jpacman</groupId>
 	<artifactId>jpacman-template</artifactId>
-	<version>6.0.0</version>
+	<version>6.0.1-SNAPSHOT</version>
 	
 	<prerequisites>
 		<maven>2.2.1</maven>
@@ -17,33 +17,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<targetJdk>1.7</targetJdk>
 	</properties>
-
-	<repositories>
-	  <repository>
-	    <id>cloudbees-private-release-repository</id>
-	    <url>https://repository-avandeursen.forge.cloudbees.com/release</url>
-	    <releases>
-	      <enabled>true</enabled>
-	      <updatePolicy>always</updatePolicy>
-	    </releases>
-	    <snapshots>
-	      <enabled>false</enabled>
-	    </snapshots>
-	  </repository>
- 
-	  <repository>
-	    <id>cloudbees-private-snapshot-repository</id>
-	    <url>https://repository-avandeursen.forge.cloudbees.com/snapshot</url>
-	    <releases>
-	      <enabled>false</enabled>
-	    </releases>
-	    <snapshots>
-	      <enabled>true</enabled>
-	      <updatePolicy>always</updatePolicy>
-	    </snapshots>
-	  </repository>
-	</repositories>
-
 
 	<dependencies>
 		<dependency>
@@ -59,12 +32,12 @@
 		<dependency>
 			<groupId>nl.tudelft.jpacman</groupId>
 			<artifactId>jpacman-framework</artifactId>
-			<version>6.0.0</version>
+			<version>6.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>nl.tudelft.jpacman</groupId>
 			<artifactId>jpacman-framework</artifactId>
-			<version>6.0.0</version>
+			<version>6.0.1-SNAPSHOT</version>
 			<type>test-jar</type>
 		</dependency>
 
