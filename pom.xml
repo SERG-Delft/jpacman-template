@@ -18,6 +18,32 @@
 		<targetJdk>1.7</targetJdk>
 	</properties>
 
+    <repositories>
+        <repository>
+            <id>jpacman-release-repository</id>
+            <url>https://github.com/SERG-Delft/jpacman-mvn-repo/raw/master/releases</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>jpacman-snapshot-repository</id>
+            <url>https://github.com/SERG-Delft/jpacman-mvn-repo/raw/master/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -32,12 +58,12 @@
 		<dependency>
 			<groupId>nl.tudelft.jpacman</groupId>
 			<artifactId>jpacman-framework</artifactId>
-			<version>6.0.1-SNAPSHOT</version>
+			<version>6.1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>nl.tudelft.jpacman</groupId>
 			<artifactId>jpacman-framework</artifactId>
-			<version>6.0.1-SNAPSHOT</version>
+			<version>6.1.0-SNAPSHOT</version>
 			<type>test-jar</type>
 		</dependency>
 
