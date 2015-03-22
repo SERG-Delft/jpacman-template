@@ -1,3 +1,5 @@
+![build status](https://travis-ci.org/SERG-Delft/jpacman-template.svg?branch=master)
+
 jpacman-template
 ================
 
@@ -7,4 +9,4 @@ Once you've used the template, make sure to update this `readme.md` file so that
 
 If you have suggestion on improving the template, your pull request is most welcome.
 
-[jpacman]: http://github.com/avandeursen/jpacman-framework
+[jpacman]: http://github.com/SERG-Delft/jpacman-framework
