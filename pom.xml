@@ -58,12 +58,12 @@
 		<dependency>
 			<groupId>nl.tudelft.jpacman</groupId>
 			<artifactId>jpacman-framework</artifactId>
-			<version>6.1.0</version>
+			<version>6.1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>nl.tudelft.jpacman</groupId>
 			<artifactId>jpacman-framework</artifactId>
-			<version>6.1.0</version>
+			<version>6.1.1</version>
 			<type>test-jar</type>
 		</dependency>
 
