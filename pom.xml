@@ -4,7 +4,7 @@
 
 	<groupId>nl.tudelft.jpacman</groupId>
 	<artifactId>jpacman-template</artifactId>
-	<version>6.1.0</version>
+	<version>6.1.1-SNAPSHOT</version>
 	
 	<prerequisites>
 		<maven>2.2.1</maven>
