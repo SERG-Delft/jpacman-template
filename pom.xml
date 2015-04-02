@@ -33,7 +33,7 @@
 
         <repository>
             <id>jpacman-snapshot-repository</id>
-            <url>https://github.com/SERG-Delft/jpacman-mvn-repo/raw/master/snapshots</url>
+            <url>https://devhub.ewi.tudelft.nl/nexus/content/repositories/snapshots</url>
             <releases>
                 <enabled>false</enabled>
             </releases>
