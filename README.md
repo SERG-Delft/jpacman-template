@@ -1,5 +1,3 @@
-![build status](https://travis-ci.org/SERG-Delft/jpacman-template.svg?branch=master)
-
 jpacman-template
 ================
 
