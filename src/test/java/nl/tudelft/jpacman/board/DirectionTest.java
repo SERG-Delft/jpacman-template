@@ -5,7 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
- * A very simple test class to have a starting point where to put tests.
+ * A very simple (and not particularly useful)
+ * test class to have a starting point where to put tests.
  * 
  * @author Arie van Deursen
  *
@@ -13,11 +14,12 @@ import org.junit.Test;
 public class DirectionTest {
 
 	/**
-	 * Do we get the correct horizontal delta when moving north?
+	 * Do we get the correct delta when moving north?
 	 */
 	@Test
-	public void directionTest() {
-		assertEquals(0, Direction.NORTH.getDeltaX());
+	public void testNorth() {
+		Direction north = Direction.valueOf("NORTH");
+		assertEquals(-1, north.getDeltaY());
 	}
 
 }
