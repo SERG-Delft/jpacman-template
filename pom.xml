@@ -16,6 +16,9 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<targetJdk>1.7</targetJdk>
+		<checkstyle.plugin.version>2.15</checkstyle.plugin.version>
+		<pmd.plugin.version>3.4</pmd.plugin.version>
+		<findbugs.version>3.0.0</findbugs.version>
 	</properties>
 
     <repositories>
@@ -119,6 +122,45 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<!-- The checkstyle, findbugs and PMD plugins have configurations,
+				for the checkstyle:checkstyle and pmd:pmd to work properly,
+				the plugins should also be specified under the build section.
+				See: https://github.com/sevntu-checkstyle/checkstyle-samples/blob/master/maven-project/pom.xml
+			-->
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>${checkstyle.plugin.version}</version>
+				<configuration>
+					<configLocation>${basedir}/checkstyle.xml</configLocation>
+					<includeTestSourceDirectory>true</includeTestSourceDirectory>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>${pmd.plugin.version}</version>
+				<configuration>
+					<skipEmptyReport>false</skipEmptyReport>
+					<includeTests>true</includeTests>
+					<rulesets>
+						<ruleset>pmd-rules.xml</ruleset>
+					</rulesets>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>${findbugs.version}</version>
+				<configuration>
+					<xmlOutput>true</xmlOutput>
+					<includeTests>true</includeTests>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -159,10 +201,10 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>2.15</version>
+				<version>${checkstyle.plugin.version}</version>
 				<configuration>
 					<configLocation>${basedir}/checkstyle.xml</configLocation>
-					<includeTestSourceDirectory> true </includeTestSourceDirectory>
+					<includeTestSourceDirectory>true</includeTestSourceDirectory>
 				</configuration>
 			</plugin>
 
@@ -182,7 +224,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
-				<version>3.4</version>
+				<version>${pmd.plugin.version}</version>
 				<configuration>
 					<skipEmptyReport>false</skipEmptyReport>
 					<includeTests>true</includeTests>
@@ -195,7 +237,11 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>findbugs-maven-plugin</artifactId>
-				<version>3.0.0</version>
+				<version>${findbugs.version}</version>
+                                <configuration>
+                                        <xmlOutput>true</xmlOutput>
+                                        <includeTests>true</includeTests>
+                                </configuration>
 			</plugin>
 		</plugins>
 	</reporting>
