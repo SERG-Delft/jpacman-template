@@ -4,7 +4,7 @@
 
 	<groupId>nl.tudelft.jpacman</groupId>
 	<artifactId>jpacman-template</artifactId>
-	<version>6.2.0</version>
+	<version>6.3.0</version>
 	
 	<prerequisites>
 		<maven>2.2.1</maven>
@@ -16,6 +16,8 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<targetJdk>1.7</targetJdk>
+
+		<jpacman.framework.version>6.3.0</jpacman.framework.version>
 		<checkstyle.plugin.version>2.15</checkstyle.plugin.version>
 		<pmd.plugin.version>3.4</pmd.plugin.version>
 		<findbugs.version>3.0.0</findbugs.version>
@@ -61,12 +63,12 @@
 		<dependency>
 			<groupId>nl.tudelft.jpacman</groupId>
 			<artifactId>jpacman-framework</artifactId>
-			<version>6.2.0</version>
+			<version>${jpacman.framework.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>nl.tudelft.jpacman</groupId>
 			<artifactId>jpacman-framework</artifactId>
-			<version>6.2.0</version>
+			<version>${jpacman.framework.version}</version>
 			<type>test-jar</type>
 		</dependency>
 		<dependency>
