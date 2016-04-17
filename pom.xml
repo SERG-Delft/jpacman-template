@@ -1,27 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>nl.tudelft.jpacman</groupId>
 	<artifactId>jpacman-template</artifactId>
 	<version>6.3.0</version>
-	
-	<prerequisites>
-		<maven>2.2.1</maven>
-	</prerequisites>
 
 	<name>JPacman Template Solution</name>
-	<description>Template for solving the jpacman exercises.</description>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<targetJdk>1.7</targetJdk>
-
-		<jpacman.framework.version>6.3.0</jpacman.framework.version>
-		<checkstyle.plugin.version>2.15</checkstyle.plugin.version>
-		<pmd.plugin.version>3.4</pmd.plugin.version>
-		<findbugs.version>3.0.0</findbugs.version>
-	</properties>
+	<description>
+		Template for solving the JPacman exercises.
+	</description>
 
     <repositories>
         <repository>
@@ -49,17 +36,38 @@
         </repository>
     </repositories>
 
+	<modelVersion>4.0.0</modelVersion>
+
+	<prerequisites>
+		<maven>3.0.1</maven>
+	</prerequisites>
+
+	<properties>
+		<jpacman.framework.version>6.3.0</jpacman.framework.version>
+
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<junit.version>4.12</junit.version>
+		<mockito.version>2.0.47-beta</mockito.version>
+		<hamcrest.version>1.3</hamcrest.version>
+
+		<surefire.plugin.version>2.19.1</surefire.plugin.version>
+		<javadoc.plugin.version>2.10.3</javadoc.plugin.version>
+		<projectinfo.plugin.version>2.9</projectinfo.plugin.version>
+		<assembly.plugin.version>2.6</assembly.plugin.version>
+		<checkstyle.plugin.version>2.17</checkstyle.plugin.version>
+		<pmd.plugin.version>3.6</pmd.plugin.version>
+		<findbugs.plugin.version>3.0.3</findbugs.plugin.version>
+		<cobertura.plugin.version>2.7</cobertura.plugin.version>
+		<jacoco.plugin.version>0.7.6.201602180812</jacoco.plugin.version>
+
+	</properties>
+
 	<dependencies>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.12</version>
-		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
-			<version>2.0.5-beta</version>
-		</dependency>
 		<dependency>
 			<groupId>nl.tudelft.jpacman</groupId>
 			<artifactId>jpacman-framework</artifactId>
@@ -70,46 +78,35 @@
 			<artifactId>jpacman-framework</artifactId>
 			<version>${jpacman.framework.version}</version>
 			<type>test-jar</type>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+            <scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
+	        <scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hamcrest</groupId>
-			<artifactId>hamcrest-all</artifactId>
-			<version>1.3</version>
+			<artifactId>hamcrest-library</artifactId>
+			<version>${hamcrest.version}</version>
+			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
 	<build>
 		<plugins>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.2</version>
-				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>2.4</version>
-				<configuration>
-					<archive>
-						<manifest>
-							<addClasspath>true</addClasspath>
-							<mainClass>nl.tudelft.jpacman.group-yournumber.Launcher</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
-
-
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.5.3</version>
+				<version>${assembly.plugin.version}</version>
 				<configuration>
 					<descriptors>
 						<descriptor>${basedir}/src-assembly.xml</descriptor>
@@ -125,11 +122,32 @@
 				</executions>
 			</plugin>
 
-			<!-- The checkstyle, findbugs and PMD plugins have configurations,
-				for the checkstyle:checkstyle and pmd:pmd to work properly,
-				the plugins should also be specified under the build section.
-				See: https://github.com/sevntu-checkstyle/checkstyle-samples/blob/master/maven-project/pom.xml
-			-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<useDefaultManifestFile>true</useDefaultManifestFile>
+				</configuration>
+				<executions>
+					<execution>
+						<id>test-files</id>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>src-files</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- The checkstyle, findbugs and PMD plugins have configurations, for 
+				the checkstyle:checkstyle and pmd:pmd to work properly, the plugins should 
+				also be specified under the build section. See: https://github.com/sevntu-checkstyle/checkstyle-samples/blob/master/maven-project/pom.xml -->
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -157,11 +175,77 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>findbugs-maven-plugin</artifactId>
-				<version>${findbugs.version}</version>
+				<version>${findbugs.plugin.version}</version>
 				<configuration>
 					<xmlOutput>true</xmlOutput>
 					<includeTests>true</includeTests>
 				</configuration>
+			</plugin>
+			
+			<plugin> 
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${surefire.plugin.version}</version>
+			</plugin>
+			
+			<plugin>
+			    <groupId>org.jacoco</groupId>
+    			<artifactId>jacoco-maven-plugin</artifactId>
+    			<version>${jacoco.plugin.version}</version>
+				<executions>
+					<execution>
+						<id>default-prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-check</id>
+						<goals>
+							<goal>check</goal>
+						</goals>
+						<configuration>
+							<haltOnFailure>false</haltOnFailure>
+              				<rules>
+			                	<rule>
+                  					<element>BUNDLE</element>
+                 					<limits>
+                     					<limit>
+                      						<counter>LINE</counter>
+                      						<value>COVEREDRATIO</value>
+                      						<minimum>0.60</minimum>
+                    					</limit>
+                  					</limits>
+                				</rule>
+              				</rules>
+            			</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+				
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.4.3</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+						<createDependencyReducedPom>false</createDependencyReducedPom>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
@@ -171,13 +255,13 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>2.8</version>
+				<version>${projectinfo.plugin.version}</version>
 			</plugin>
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.10.1</version>
+				<version>${javadoc.plugin.version}</version>
 				<configuration>
 					<failOnError>false</failOnError>
 				</configuration>
@@ -200,6 +284,24 @@
 				<version>2.5</version>
 			</plugin>
 
+			<plugin> <!-- JUnit report -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>${surefire.plugin.version}</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>${cobertura.plugin.version}</version>
+			</plugin>
+
+			<plugin>
+			    <groupId>org.jacoco</groupId>
+    			<artifactId>jacoco-maven-plugin</artifactId>
+    			<version>${jacoco.plugin.version}</version>
+			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>
@@ -210,19 +312,12 @@
 				</configuration>
 			</plugin>
 
-			<plugin> <!-- JUnit report -->
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-report-plugin</artifactId>
-				<version>2.18.1</version>
-			</plugin>
-
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>cobertura-maven-plugin</artifactId>
-				<version>2.7</version>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>${findbugs.plugin.version}</version>
 			</plugin>
 
-			<!-- PMD configuration for JUnit tests -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
@@ -239,12 +334,14 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>findbugs-maven-plugin</artifactId>
-				<version>${findbugs.version}</version>
-                                <configuration>
-                                        <xmlOutput>true</xmlOutput>
-                                        <includeTests>true</includeTests>
-                                </configuration>
+				<version>${findbugs.plugin.version}</version>
+				<configuration>
+					<xmlOutput>true</xmlOutput>
+					<includeTests>true</includeTests>
+				</configuration>
 			</plugin>
 		</plugins>
 	</reporting>
 </project>
+
+
