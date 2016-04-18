@@ -3,7 +3,7 @@
 
 	<groupId>nl.tudelft.jpacman</groupId>
 	<artifactId>jpacman-template</artifactId>
-	<version>6.3.0</version>
+	<version>6.4.0</version>
 
 	<name>JPacman Template Solution</name>
 	<description>
@@ -43,7 +43,7 @@
 	</prerequisites>
 
 	<properties>
-		<jpacman.framework.version>6.3.0</jpacman.framework.version>
+		<jpacman.framework.version>6.4.0</jpacman.framework.version>
 
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
