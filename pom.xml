@@ -3,7 +3,7 @@
 
 	<groupId>nl.tudelft.jpacman</groupId>
 	<artifactId>jpacman-template</artifactId>
-	<version>6.3.0</version>
+	<version>6.4.0</version>
 
 	<name>JPacman Template Solution</name>
 	<description>
@@ -43,7 +43,7 @@
 	</prerequisites>
 
 	<properties>
-		<jpacman.framework.version>6.3.0</jpacman.framework.version>
+		<jpacman.framework.version>6.4.0</jpacman.framework.version>
 
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -54,6 +54,7 @@
 		<junit.version>4.12</junit.version>
 		<mockito.version>2.0.47-beta</mockito.version>
 		<hamcrest.version>1.3</hamcrest.version>
+		<cucumber.version>1.2.2</cucumber.version>
 
 		<surefire.plugin.version>2.19.1</surefire.plugin.version>
 		<javadoc.plugin.version>2.10.3</javadoc.plugin.version>
@@ -100,6 +101,18 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>${cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>${cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
