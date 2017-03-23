@@ -43,7 +43,7 @@
     </prerequisites>
 
     <properties>
-        <jpacman.framework.version>6.4.0</jpacman.framework.version>
+        <jpacman.framework.version>6.5.0-SNAPSHOT</jpacman.framework.version>
 
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -51,10 +51,15 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <assertj.version>3.6.1</assertj.version>
-        <cucumber.version>1.2.5</cucumber.version>
+        <junit.jupiter.version>5.0.0-M3</junit.jupiter.version>
+        <junit.platform.version>1.0.0-M3</junit.platform.version>
+
         <junit.version>4.12</junit.version>
-        <mockito.version>2.3.0</mockito.version>
+        <junit.vintage.version>${junit.version}.0-M3</junit.vintage.version>
+
+        <cucumber.version>1.2.5</cucumber.version>
+        <assertj.version>3.6.2</assertj.version>
+        <mockito.version>2.7.19</mockito.version>
 
         <assembly.plugin.version>2.6</assembly.plugin.version>
         <checkstyle.plugin.version>2.17</checkstyle.plugin.version>
@@ -84,6 +89,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

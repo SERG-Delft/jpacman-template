@@ -1,10 +1,8 @@
 package nl.tudelft.jpacman.board;
 
-import static org.junit.Assert.assertEquals;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * A very simple (and not particularly useful)
