@@ -59,7 +59,7 @@
 
         <cucumber.version>1.2.5</cucumber.version>
         <assertj.version>3.6.2</assertj.version>
-        <mockito.version>2.7.19</mockito.version>
+        <mockito.version>2.7.22</mockito.version>
 
         <assembly.plugin.version>2.6</assembly.plugin.version>
         <checkstyle.plugin.version>2.17</checkstyle.plugin.version>
