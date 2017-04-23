@@ -10,12 +10,12 @@ import nl.tudelft.jpacman.Launcher;
 
 public class MyExtension extends Launcher {
 
-	/**
-	 * Start the pacman user interface.
-	 * @param argv Ignored
-	 */
-	public static void main(String[] argv) {
-		(new MyExtension()).launch();
-	}
-
+    /**
+     * Start the pacman user interface.
+     *
+     * @param argv Ignored
+     */
+    public static void main(String[] argv) {
+        (new MyExtension()).launch();
+    }
 }
