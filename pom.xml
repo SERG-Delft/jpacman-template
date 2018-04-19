@@ -63,8 +63,8 @@
 
         <assembly.plugin.version>2.6</assembly.plugin.version>
         <checkstyle.plugin.version>2.17</checkstyle.plugin.version>
-        <findbugs.plugin.version>3.0.3</findbugs.plugin.version>
-        <jacoco.plugin.version>0.7.6.201602180812</jacoco.plugin.version>
+        <spotbugs.plugin.version>3.1.3</spotbugs.plugin.version>
+        <jacoco.plugin.version>0.8.1</jacoco.plugin.version>
         <javadoc.plugin.version>2.10.3</javadoc.plugin.version>
         <jxr.plugin.version>2.5</jxr.plugin.version>
         <pmd.plugin.version>3.6</pmd.plugin.version>
@@ -230,14 +230,16 @@
             </plugin>
 
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>findbugs-maven-plugin</artifactId>
-                <version>${findbugs.plugin.version}</version>
-                <configuration>
-                    <xmlOutput>true</xmlOutput>
-                    <includeTests>true</includeTests>
-                </configuration>
-            </plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>${spotbugs.plugin.version}</version>
+				<configuration>
+					<xmlOutput>true</xmlOutput>
+					<includeTests>true</includeTests>
+					<onlyAnalyze>nl.tudelft.jpacman.*</onlyAnalyze>
+				</configuration>
+			</plugin>
+
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
