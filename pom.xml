@@ -3,7 +3,7 @@
 
     <groupId>nl.tudelft.jpacman</groupId>
     <artifactId>jpacman-template</artifactId>
-    <version>7.0.0</version>
+    <version>7.1.0-SNAPSHOT</version>
 
     <name>JPacman Template Solution</name>
     <description>
@@ -38,12 +38,12 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <prerequisites>
-        <maven>3.0.1</maven>
-    </prerequisites>
+    <!--<prerequisites>-->
+        <!--<maven>3.0.1</maven>-->
+    <!--</prerequisites>-->
 
     <properties>
-        <jpacman.framework.version>7.0.0</jpacman.framework.version>
+        <jpacman.framework.version>7.1.0-SNAPSHOT</jpacman.framework.version>
 
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -51,25 +51,26 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <junit.jupiter.version>5.0.0-M4</junit.jupiter.version>
-        <junit.platform.version>1.0.0-M4</junit.platform.version>
+        <junit.jupiter.version>5.1.1</junit.jupiter.version>
+        <junit.platform.version>1.1.1</junit.platform.version>
 
         <junit.version>4.12</junit.version>
-        <junit.vintage.version>${junit.version}.0-M4</junit.vintage.version>
+        <junit.vintage.version>5.1.0</junit.vintage.version>
 
         <cucumber.version>1.2.5</cucumber.version>
-        <assertj.version>3.6.2</assertj.version>
-        <mockito.version>2.7.22</mockito.version>
+        <assertj.version>3.9.1</assertj.version>
+        <mockito.version>2.18.0</mockito.version>
 
-        <assembly.plugin.version>2.6</assembly.plugin.version>
+        <assembly.plugin.version>3.1.0</assembly.plugin.version>
         <checkstyle.plugin.version>2.17</checkstyle.plugin.version>
+        <checkstyle.version>8.9</checkstyle.version>
         <spotbugs.plugin.version>3.1.3</spotbugs.plugin.version>
         <jacoco.plugin.version>0.8.1</jacoco.plugin.version>
-        <javadoc.plugin.version>2.10.3</javadoc.plugin.version>
+        <javadoc.plugin.version>3.0.0</javadoc.plugin.version>
         <jxr.plugin.version>2.5</jxr.plugin.version>
-        <pmd.plugin.version>3.6</pmd.plugin.version>
+        <pmd.plugin.version>3.9.0</pmd.plugin.version>
         <projectinfo.plugin.version>2.9</projectinfo.plugin.version>
-        <shade.plugin.version>2.4.3</shade.plugin.version>
+        <shade.plugin.version>3.1.0</shade.plugin.version>
         <surefire.plugin.version>2.19.1</surefire.plugin.version>
 
     </properties>
@@ -162,6 +163,28 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.0.0-M1</version>
+                <executions>
+                    <execution>
+                        <id>enforce-maven</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>3.1.1</version>
+                                </requireMavenVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>${assembly.plugin.version}</version>
                 <configuration>
@@ -213,7 +236,17 @@
                 <configuration>
                     <configLocation>${basedir}/checkstyle.xml</configLocation>
                     <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                    <failOnViolation>true</failOnViolation>
+                    <violationSeverity>warning</violationSeverity>
+                    <consoleOutput>true</consoleOutput>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>${checkstyle.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
 
             <plugin>
@@ -221,8 +254,11 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>${pmd.plugin.version}</version>
                 <configuration>
+                    <analysisCache>true</analysisCache>
                     <skipEmptyReport>false</skipEmptyReport>
                     <includeTests>true</includeTests>
+                    <failOnViolation>true</failOnViolation>
+                    <printFailingErrors>true</printFailingErrors>
                     <rulesets>
                         <ruleset>pmd-rules.xml</ruleset>
                     </rulesets>
@@ -233,13 +269,11 @@
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
                 <version>${spotbugs.plugin.version}</version>
-				<configuration>
-					<xmlOutput>true</xmlOutput>
-					<includeTests>true</includeTests>
-					<onlyAnalyze>nl.tudelft.jpacman.*</onlyAnalyze>
-				</configuration>
-			</plugin>
-
+                <configuration>
+                    <includeTests>true</includeTests>
+                    <failOnError>true</failOnError>
+                </configuration>
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -383,16 +417,11 @@
             </plugin>
 
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>findbugs-maven-plugin</artifactId>
-                <version>${findbugs.plugin.version}</version>
-            </plugin>
-
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>${pmd.plugin.version}</version>
                 <configuration>
+                    <analysisCache>true</analysisCache>
                     <skipEmptyReport>false</skipEmptyReport>
                     <includeTests>true</includeTests>
                     <rulesets>
@@ -402,9 +431,9 @@
             </plugin>
 
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>findbugs-maven-plugin</artifactId>
-                <version>${findbugs.plugin.version}</version>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>${spotbugs.plugin.version}</version>
                 <configuration>
                     <xmlOutput>true</xmlOutput>
                     <includeTests>true</includeTests>
