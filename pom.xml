@@ -36,14 +36,14 @@
 		</repository>
 		<repository>
 			<id>central</id>
-			<url>http://https://courses.ewi.tudelft.nl/nexus/repository/maven-public</url>
+			<url>https://courses.ewi.tudelft.nl/nexus/repository/maven-public</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
 		<repository>
 			<id>snapshots</id>
-			<url>http://https://courses.ewi.tudelft.nl/nexus/repository/maven-public</url>
+			<url>https://courses.ewi.tudelft.nl/nexus/repository/maven-public</url>
 			<releases>
 				<enabled>false</enabled>
 			</releases>
@@ -52,14 +52,14 @@
 	<pluginRepositories>
 		<pluginRepository>
 			<id>central</id>
-			<url>http://https://courses.ewi.tudelft.nl/nexus/repository/maven-public</url>
+			<url>https://courses.ewi.tudelft.nl/nexus/repository/maven-public</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
 		</pluginRepository>
 		<pluginRepository>
 			<id>snapshots</id>
-			<url>http://https://courses.ewi.tudelft.nl/nexus/repository/maven-public</url>
+			<url>https://courses.ewi.tudelft.nl/nexus/repository/maven-public</url>
 			<releases>
 				<enabled>false</enabled>
 			</releases>
