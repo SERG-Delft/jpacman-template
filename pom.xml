@@ -3,7 +3,7 @@
 
     <groupId>nl.tudelft.jpacman</groupId>
     <artifactId>jpacman-template</artifactId>
-    <version>7.0.0</version>
+    <version>7.1.0-SNAPSHOT</version>
 
     <name>JPacman Template Solution</name>
     <description>
