@@ -1,7 +1,10 @@
 package nl.tudelft.jpacman.npc.ghost;
 
+import nl.tudelft.jpacman.board.Board;
 import nl.tudelft.jpacman.board.BoardFactory;
 import nl.tudelft.jpacman.board.Square;
+import nl.tudelft.jpacman.board.Unit;
+import nl.tudelft.jpacman.level.Level;
 import nl.tudelft.jpacman.level.LevelFactory;
 import nl.tudelft.jpacman.level.MapParser;
 import nl.tudelft.jpacman.npc.Ghost;
@@ -60,6 +63,30 @@ public final class GhostMapParser extends MapParser {
             default:
                 super.addSquare(grid, ghosts, startPositions, x, y, c);
         }
+    }
+
+    /**
+     *  Finds a subtype of Unit in a level.
+     *  This method is very useful for finding the ghosts in the parsed map.
+     *  
+     * @param clazz the type to search for.
+     * @param level the level to search in.
+     * @param <T> the return type, same as the type in clazz.
+     *           
+     * @return the first unit found of type clazz, or null.
+     */
+    public <T extends Unit> T findUnit(Class<T> clazz, Level level) {
+        final Board board = level.getBoard();
+        for (int y = 0; y < board.getHeight(); y++) {
+            for (int x = 0; x < board.getWidth(); x++) {
+                final T ghost = Navigation.findUnit(clazz, board.squareAt(x, y));
+                if (ghost != null) {
+                    return ghost;
+                }
+            }
+        }
+
+        return null;
     }
 
     private Square makeGhostSquare(List<Ghost> ghosts, Ghost ghost) {
