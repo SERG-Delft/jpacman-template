@@ -25,7 +25,7 @@ public final class GhostMapParser extends MapParser {
      * @param boardFactory The factory to create board elements.
      * @param ghostFactory the factory to create the ghosts.
      */
-    private GhostMapParser(LevelFactory levelFactory, BoardFactory boardFactory,
+    public GhostMapParser(LevelFactory levelFactory, BoardFactory boardFactory,
                            GhostFactory ghostFactory) {
         super(levelFactory, boardFactory);
         this.ghostFactory = ghostFactory;
